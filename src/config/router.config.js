@@ -2,6 +2,10 @@
 import { UserLayout, BasicLayout, RouteView, BlankLayout, PageView } from '@/layouts'
 import { bxAnaalyse } from '@/core/icons'
 
+/**
+ * 异步路由：包含除基础路由外的所有页面的路由配置，和不同类型角色用户权限结合控制用户访问权限
+ * @type { *[] }
+ */
 export const asyncRouterMap = [
 
   {
@@ -331,7 +335,7 @@ export const asyncRouterMap = [
 ]
 
 /**
- * 基础路由
+ * 基础路由：所有用户都有权限的路由，包含用户登录、注册和404等页面
  * @type { *[] }
  */
 export const constantRouterMap = [

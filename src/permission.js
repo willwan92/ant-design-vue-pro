@@ -23,6 +23,9 @@ router.beforeEach((to, from, next) => {
       NProgress.done()
     } else {
       if (store.getters.roles.length === 0) {
+				// 获取用户权限信息
+				// 这里只是返回一个固定的权限数据，实际项目中可能是大多是不同的角色对应不同的权限
+				// 这时候就需要获取登录用户的角色类型，根据角色类型获取权限信息
         store
           .dispatch('GetInfo')
           .then(res => {

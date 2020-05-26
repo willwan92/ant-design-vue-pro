@@ -1,10 +1,9 @@
 import { asyncRouterMap, constantRouterMap } from '@/config/router.config'
 
 /**
- * 过滤账户是否拥有某一个权限，并将菜单从加载列表移除
- *
- * @param permission
- * @param route
+ * 判断用户所拥有的权限是否包含该路由的权限
+ * @param {Array} permission 用户拥有的权限
+ * @param {Object} route 单个路由
  * @returns {boolean}
  */
 function hasPermission (permission, route) {
@@ -37,6 +36,11 @@ function hasRole(roles, route) {
   }
 }
 
+/**
+ * 过滤异步路由，保留用户有权限的路由
+ * @param {Array} routerMap 异步路由
+ * @param {Object} roles 用户所属角色数据，包含用户权限
+ */
 function filterAsyncRouter (routerMap, roles) {
   const accessedRouters = routerMap.filter(route => {
     if (hasPermission(roles.permissionList, route)) {
@@ -62,6 +66,11 @@ const permission = {
     }
   },
   actions: {
+		/**
+			* 生成路由
+			* @param {Object} param0 context对象
+			* @param {Object} data 用户所属角色数据
+			*/
     GenerateRoutes ({ commit }, data) {
       return new Promise(resolve => {
         const { roles } = data

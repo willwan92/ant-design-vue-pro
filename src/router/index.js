@@ -11,6 +11,7 @@ Router.prototype.push = function push (location, onResolve, onReject) {
 
 Vue.use(Router)
 
+// 这里导出基础路由
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
