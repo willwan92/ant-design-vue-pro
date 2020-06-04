@@ -1,3 +1,7 @@
+/**
+ * VueAxios 插件：用于集成 axios实例 到 vue，
+ * 便于在单文件组件中向服务端发送请求
+ */
 const VueAxios = {
   vm: {},
   // eslint-disable-next-line no-unused-vars

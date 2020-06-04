@@ -1,3 +1,4 @@
+// 引入封装的 axios 实例
 import { axios } from '@/utils/request'
 
 const api = {
