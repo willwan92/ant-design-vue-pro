@@ -121,6 +121,7 @@ import TwoStepCaptcha from '@/components/tools/TwoStepCaptcha'
 import { mapActions } from 'vuex'
 import { timeFix } from '@/utils/util'
 import { getSmsCaptcha, get2step } from '@/api/login'
+import { getTestData } from '@/api/test'
 
 export default {
   components: {
@@ -153,10 +154,15 @@ export default {
       .catch(() => {
         this.requiredTwoStepCaptcha = false
       })
-    // this.requiredTwoStepCaptcha = true
+		// this.requiredTwoStepCaptcha = true
+		this.getData()
   },
   methods: {
-    ...mapActions(['Login', 'Logout']),
+		...mapActions(['Login', 'Logout']),
+		async getData () {
+			const data = await getTestData()
+			console.log(data)
+		},
     // handler
     handleUsernameOrEmail (rule, value, callback) {
       const { state } = this
