@@ -6,6 +6,7 @@ const username = ['admin', 'super']
 // '21232f297a57a5a743894a0e4a801fc3',
 const password = ['8914de686ab28dc22f30d3d8e107ff6c'] // admin, ant.design
 
+// 接口实现：构造接口要返回的数据
 const login = (options) => {
   const body = getBody(options)
   console.log('mock: body', body)
@@ -44,6 +45,7 @@ const twofactor = () => {
   return builder({ stepCode: Mock.mock('@integer(0, 1)') })
 }
 
+// 模拟接口
 Mock.mock(/\/auth\/login/, 'post', login)
 Mock.mock(/\/auth\/logout/, 'post', logout)
 Mock.mock(/\/account\/sms/, 'post', smsCaptcha)
