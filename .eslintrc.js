@@ -21,7 +21,8 @@ module.exports = {
           'allowFirstLine': false
         }
       }
-    ],
+		],
+		"space-before-function-paren": 0,
     'vue/attribute-hyphenation': 0,
     'vue/html-self-closing': 0,
     'vue/component-name-in-template-casing': 0,
